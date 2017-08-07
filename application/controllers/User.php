@@ -9,12 +9,13 @@
 			$uname=$this->input->post('name');
 			$num=$this->input->post('tel');
 			$psw=$this->input->post('psw');
-			$time=now();
+			
+			// $time=now();
 			$result=$this->user_model->check_num($num);
 			if($result){
 				echo "6";
 			}else{
-				$result=$this->user_model->insert_user($uname,$num,$psw,$time);
+				$result=$this->user_model->insert_user($uname,$num,$psw);
 				if($result){
 					echo "7";
 				}else{
