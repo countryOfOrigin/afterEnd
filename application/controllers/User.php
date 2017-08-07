@@ -26,7 +26,7 @@
 			$psw=$this->input->post('psw');
 			$result=$this->user_model->login_user($num,$psw);
 			if($result){
-				$result=json_encode($result);s
+				$result=json_encode($result);
 				echo $result;
 			}else{
 				echo "3";

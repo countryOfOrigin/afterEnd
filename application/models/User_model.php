@@ -10,7 +10,7 @@
 		public function insert_user($uname,$num,$psw){
 			$arr=array(
 				'name'=>$uname,
-				'pass'=>$pwd,
+				'pass'=>$psw,
 				'telephone'=>$num,
 				);
 			$query=$this->db->insert('users',$arr);
