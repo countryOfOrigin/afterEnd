@@ -1,12 +1,12 @@
 <?php  
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	class User_model extends CI_Model{
-		// public function check_num($num){
-		// 	$this->db->from('users');
-		// 	$this->db->where('telephone',$num);
-		// 	$query=$this->db->get();
-		// 	return $query->row();
-		// }
+		public function check_num($num){
+			$this->db->from('users');
+			$this->db->where('telephone',$num);
+			$query=$this->db->get();
+			return $query->row();
+		}
 		public function insert_user($uname,$num,$psw){
 			$arr=array(
 				'name'=>$uname,
@@ -28,9 +28,9 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
-		public function get_user(){
+		// public function get_user(){
 
-		}
+		// }
 	}
 
 ?>
