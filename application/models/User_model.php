@@ -7,11 +7,12 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
-		public function insert_user($uname,$num,$psw){
+		public function insert_user($uname,$num,$psw,$time){
 			$arr=array(
 				'name'=>$uname,
 				'pass'=>$psw,
 				'telephone'=>$num,
+				'time'=>$time
 				);
 			$query=$this->db->insert('users',$arr);
 			return $query;
