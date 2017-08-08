@@ -7,7 +7,7 @@
 		}
 		public function get_goods(){
 			$arr=[];
-			for ($i=0; $i < 8; $i++) { 
+			for ($i=1; $i < 9; $i++) { 
 				$result=$this->goods_model->get_goods($i,4,null);
 				array_push($arr,$result);
 			}
@@ -23,7 +23,7 @@
 				echo json_encode($result);
 			}else{
 				$arr=[];
-				for ($i=0; $i < 8; $i++) { 
+				for ($i=1; $i < 9; $i++) { 
 					$result=$this->goods_model->get_goods($i,$count,null,($page-1)*$count);
 					array_push($arr,$result);
 				}
