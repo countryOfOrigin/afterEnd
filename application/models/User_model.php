@@ -29,9 +29,14 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
-		// public function get_user(){
-
-		// }
+		public function get_user($uid){
+			$this->db->select('url');
+			$this->db->select('grade');
+			$this->db->from('users');
+			$this->db->where('user_id',$uid);
+			$query=$this->db->get();
+			return $query->row();
+		}
 	}
 
 ?>

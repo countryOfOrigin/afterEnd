@@ -34,10 +34,11 @@
 				echo "3";
 			}
 		}
-		// public function get_user(){
-
-
-		// 	$result=$this->user_model->get_user($uid);
+		public function get_user(){
+			$uid=$this->input->get('uid');
+			$result=$this->user_model->get_user($uid);
+			echo json_encode($result);
+		}
 	 }
 
 
