@@ -1,9 +1,9 @@
 <?php  
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	class Goods_model extends CI_Model{
-		public function get_goods($i){
+		public function get_goods($i,$count,$num){
 
-			$this->db->limit(4);
+			$this->db->limit($count,$num);
 			$this->db->from('goods');
 			$this->db->join('goods_classification','goods_classification.good_id=goods.good_id');
 			$this->db->join('classification','goods_classification.class_name=classification.class_name');
@@ -14,6 +14,9 @@
 			$this->db->select('goods.url');
 			$query=$this->db->get();
 			return $query->result();
+		}
+		public function paging(){
+
 		}
 	}
 
