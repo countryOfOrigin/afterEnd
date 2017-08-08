@@ -17,17 +17,13 @@
 			$cls=$this->input->get('cls');
 			$count=$this->input->get('count');
 			$page=$this->input->get('page');
-
+			echo "$cls";
 			if($cls){
-				$result=$this->goods_model->get_goods($cls,$count,($page-1)*$count);
+				$result=$this->goods_model->paging($cls,$count,($page-1)*$count);
 				echo json_encode($result);
 			}else{
-				$arr=[];
-				for ($i=1; $i < 9; $i++) { 
-					$result=$this->goods_model->get_goods($i,$count,null,($page-1)*$count);
-					array_push($arr,$result);
-				}
-				echo json_encode($arr);
+				$result=$this->goods_model->paging_else($count,($page-1)*$count);
+				echo json_encode($result);
 			}
 		}
 	}
