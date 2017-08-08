@@ -14,10 +14,9 @@
 			echo json_encode($arr);
 		}
 		public function paging(){
-			$cls=$this->input->get('cls');
-			$count=$this->input->get('count');
-			$page=$this->input->get('page');
-			echo "$cls";
+			$cls=$this->input->post('cls');
+			$count=$this->input->post('count');
+			$page=$this->input->post('page');
 			if($cls){
 				$result=$this->goods_model->paging($cls,$count,($page-1)*$count);
 				echo json_encode($result);
