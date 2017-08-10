@@ -22,6 +22,19 @@
 			$query=$this->db->insert('shopping_cart');
 			return $query;
 		}
+		public function get_cart($uid){
+			$this->db->from('shopping_cart');
+			$this->db->join('goods','goods.good_id=shopping_cart.good_id');
+			$this->db->where('user_id',$uid);
+			$this->db->select('goods.name');
+			$this->db->select('goods.price');
+			$this->db->select('shopping_cart.count');
+			$this->db->select('goods.name');
+			$this->db->select('goods.parameter');
+			$this->db->select('goods.url');
+			$query=$this->db->get();
+			return $query->result();
+		}
 	}	
 
 ?>

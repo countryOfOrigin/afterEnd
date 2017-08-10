@@ -47,6 +47,11 @@
 			$result=$this->goods_model->info($gid);
 			echo json_encode($result);
 		}
+		public function collection(){
+			$uid=$this->input->get('uid');
+			$result=$this->goods_model->collection($uid);
+			echo json_encode($result);
+		}
 	}
 
 ?>

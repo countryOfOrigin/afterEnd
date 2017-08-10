@@ -5,6 +5,7 @@
 			parent::__construct();
 			$this->load->model('cart_model');
 		}
+		// 添加购物车
 		public function insert_cart(){
 			$uid=$this->input->get('uid');
 			$gid=$this->input->get('gid');
@@ -21,6 +22,15 @@
 			}else{
 				echo "0";
 			}
+		}
+		// 给uid获取购物车信息
+		public function get_cart(){
+			$uid=$this->input->get('uid');
+			$result=$this->cart_model->get_cart($uid);
+			// echo "<pre>";
+			// var_dump($result);
+			// echo "</pre>";
+			echo json_encode($result);
 		}
 	}
 
