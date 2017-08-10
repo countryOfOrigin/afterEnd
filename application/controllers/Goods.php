@@ -19,9 +19,20 @@
 			$page=$this->input->post('page');
 			if($cls){
 				$result=$this->goods_model->paging($cls,$count,($page-1)*$count);
+				if($count){
+					$all=$this->goods_model->all_cls($cls);
+					$sum=ceil($all/$count);
+					$result['sum']=$sum;
+				}
+				
 				echo json_encode($result);
 			}else{
 				$result=$this->goods_model->paging_else($count,($page-1)*$count);
+				if($count){
+					$all=$this->goods_model->all_nocls();
+					$sum=ceil($all/$count);
+					$result['sum']=$sum;
+				}
 				echo json_encode($result);
 			}
 		}

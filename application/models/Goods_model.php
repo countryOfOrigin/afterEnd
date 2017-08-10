@@ -42,6 +42,18 @@
 			$query=$this->db->get();
 			return $query->result();
 		}
+		public function all_cls($cls){
+			$this->db->from('goods');
+			$this->db->join('goods_classification','goods_classification.good_id=goods.good_id');
+			$this->db->where('goods_classification.class_name',$cls);
+			$query=$this->db->count_all_results();
+			return $query;
+		}
+		public function all_nocls(){
+			$this->db->from('goods');
+			$query=$this->db->count_all_results();
+			return $query;
+		}
 	}
 
 ?>
