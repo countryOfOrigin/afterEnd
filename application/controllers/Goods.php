@@ -22,7 +22,10 @@
 				if($count){
 					$all=$this->goods_model->all_cls($cls);
 					$sum=ceil($all/$count);
+					$goods=$result;
+					$result=[];
 					$result['sum']=$sum;
+					$result['goods']=$goods;
 				}
 				
 				echo json_encode($result);
@@ -31,10 +34,18 @@
 				if($count){
 					$all=$this->goods_model->all_nocls();
 					$sum=ceil($all/$count);
+					$goods=$result;
+					$result=[];
 					$result['sum']=$sum;
+					$result['goods']=$goods;
 				}
 				echo json_encode($result);
 			}
+		}
+		public function info(){
+			$gid=$this->input->get('gid');
+			$result=$this->goods_model->info($gid);
+			echo json_encode($result);
 		}
 	}
 
