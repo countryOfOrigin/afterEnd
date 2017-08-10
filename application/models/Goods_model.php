@@ -54,6 +54,16 @@
 			$query=$this->db->count_all_results();
 			return $query;
 		}
+		public function info($gid){
+			$this->db->from('goods');
+			$this->db->select('name');
+			$this->db->select('price');
+			$this->db->select('parameter');
+			$this->db->select('url');
+			$this->db->where('good_id',$gid);
+			$query=$this->db->get();
+			return $query->row();
+		}
 	}
 
 ?>
