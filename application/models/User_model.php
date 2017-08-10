@@ -12,7 +12,7 @@
 				'name'=>$uname,
 				'pass'=>$psw,
 				'telephone'=>$num,
-				'date'=>'now()'
+				'time'=>'now()'
 				);
 			$query=$this->db->insert('users',$arr);
 			return $query;
