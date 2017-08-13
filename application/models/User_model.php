@@ -37,6 +37,12 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
+		public function get_address($uid){
+			$this->db->from('goods_receipt');
+			$this->db->where('user_id',$uid);
+			$query=$this->db->get();
+			return $query->result();
+		}
 	}
 
 ?>

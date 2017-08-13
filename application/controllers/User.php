@@ -5,6 +5,7 @@
 			parent::__construct();
 			$this->load->model('user_model');
 		}
+		// 注册
 		public function insert_user(){
 			$uname=$this->input->post('name');
 			$num=$this->input->post('tel');
@@ -23,6 +24,7 @@
 				}
 			}
 		}
+		// 判断登录
 		public function login_user(){
 			$num=$this->input->post('tel');
 			$psw=$this->input->post('psw');
@@ -34,9 +36,16 @@
 				echo "3";
 			}
 		}
+		// 给用户id 返回用户信息
 		public function get_user(){
 			$uid=$this->input->get('uid');
 			$result=$this->user_model->get_user($uid);
+			echo json_encode($result);
+		}
+		// 给用户id 返回地址信息
+		public function get_address(){
+			$uid=$this->input->get('uid');
+			$result=$this->user_model->get_address($uid);
 			echo json_encode($result);
 		}
 	 }
