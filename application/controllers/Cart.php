@@ -32,6 +32,14 @@
 			// echo "</pre>";
 			echo json_encode($result);
 		}
+		// 删除购物车
+		public function delete_cart(){
+			$uid=$this->input->get('uid');
+			$gid=$this->input->get('gid');
+			$this->cart_model->delete_cart($uid,$gid);
+			$result=$this->cart_model->get_cart($uid);
+			echo json_encode($result);
+		}
 	}
 
 
