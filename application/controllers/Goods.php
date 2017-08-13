@@ -5,6 +5,7 @@
 			parent::__construct();
 			$this->load->model('goods_model');
 		}
+		// 获取全部商品
 		public function get_goods(){
 			$arr=[];
 			for ($i=1; $i < 9; $i++) { 
@@ -13,6 +14,7 @@
 			}
 			echo json_encode($arr);
 		}
+		// 商品分页
 		public function paging(){
 			$cls=$this->input->post('cls');
 			$count=$this->input->post('count');
@@ -42,14 +44,24 @@
 				echo json_encode($result);
 			}
 		}
+		// 给商品id返回信息
 		public function info(){
 			$gid=$this->input->get('gid');
 			$result=$this->goods_model->info($gid);
 			echo json_encode($result);
 		}
+		// 给用户id返回收藏
 		public function collection(){
 			$uid=$this->input->get('uid');
 			$result=$this->goods_model->collection($uid);
+			echo json_encode($result);
+		}
+		// 最热商品信息
+		public function hot_goods(){
+			$result=$this->goods_model->hot_goods();
+			echo "<pre>";
+			var_dump($result);
+			echo "</pre>";
 			echo json_encode($result);
 		}
 	}

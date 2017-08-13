@@ -74,6 +74,13 @@
 			$query=$this->db->get();
 			return $query->result();
 		}
+		public function hot_goods(){
+			$this->db->from('goods');
+			$this->db->limit(6);
+			$this->db->order_by('sales','DESC');
+			$query=$this->db->get();
+			return $query->result();
+		}
 	}
 
 ?>
