@@ -59,9 +59,6 @@
 		// 最热商品信息
 		public function hot_goods(){
 			$result=$this->goods_model->hot_goods();
-			echo "<pre>";
-			var_dump($result);
-			echo "</pre>";
 			echo json_encode($result);
 		}
 	}
