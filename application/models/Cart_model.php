@@ -32,6 +32,7 @@
 			$this->db->select('goods.name');
 			$this->db->select('goods.parameter');
 			$this->db->select('goods.url');
+			$this->db->select('shopping_cart.shop_id');
 			$query=$this->db->get();
 			return $query->result();
 		}
