@@ -52,6 +52,7 @@
 		public function get_address_by_aid(){
 			$aid=$this->input->get('aid');
 			$result=$this->user_model->get_address_by_aid($aid);
+			echo json_encode($result);
 		}
 		// 给地址id 删除地址信息
 		public function delete_address(){
@@ -63,13 +64,13 @@
 		}
 		// 插入新地址
 		public function insert_address(){
-			$uid=$this->input->post('uid');
-			$detail=$this->input->post('detail');  //详细地址
-			$pro=$this->input->post('pro'); //省
-			$city=$this->input->post('city'); //市
-			$dis=$this->input->post('dis'); //区
-			$name=$this->input->post('name');
-			$tel=$this->input->post('tel');
+			$uid=$this->input->get('uid');
+			$detail=$this->input->get('detail');  //详细地址
+			$pro=$this->input->get('pro'); //省
+			$city=$this->input->get('city'); //市
+			$dis=$this->input->get('dis'); //区
+			$name=$this->input->get('name');
+			$tel=$this->input->get('tel');
 			$query=$this->user_model->insert_address($uid,$detail,$pro,$city,$dis,$name,$tel);
 			if($query){
 				echo "1";

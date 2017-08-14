@@ -56,14 +56,13 @@
 		}
 		public function insert_address($uid,$detail,$pro,$city,$dis,$name,$tel){
 			$this->db->set('user_id',$uid);
-			$this->db->set('good_id',$gid);
 			$this->db->set('name',$name);
 			$this->db->set('telephone',$tel);
 			$this->db->set('address',$detail);
 			$this->db->set('province',$pro);
 			$this->db->set('district',$dis);
 			$this->db->set('city',$city);
-			$query=$this->db->insert('shopping_cart');
+			$query=$this->db->insert('goods_receipt');
 		}
 	}
 
