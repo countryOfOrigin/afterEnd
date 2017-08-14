@@ -48,6 +48,19 @@
 			$result=$this->user_model->get_address($uid);
 			echo json_encode($result);
 		}
+		// 给地址id 返回地址信息
+		public function get_address_by_aid(){
+			$aid=$this->input->get('aid');
+			$result=$this->user_model->get_address_by_aid($aid);
+		}
+		// 给地址id 删除地址信息
+		public function delete_address(){
+			$aid=$this->input->get('aid');
+			$query=$this->user_model->delete_address($aid);
+			if($query){
+				echo "1";
+			}
+		}
 	 }
 
 

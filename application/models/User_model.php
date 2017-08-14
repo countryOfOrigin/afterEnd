@@ -43,6 +43,17 @@
 			$query=$this->db->get();
 			return $query->result();
 		}
+		public function get_address_by_aid($aid){
+			$this->db->from('goods_receipt');
+			$this->db->where('receipt_id',$aid);
+			$query=$this->db->get();
+			return $query->result();
+		}
+		public function delete_address($aid){
+			$this->db->where('receipt_id',$aid);
+			$query=$this->db->delete('goods_receipt');
+			return $query;
+		}
 	}
 
 ?>
