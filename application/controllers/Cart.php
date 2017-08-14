@@ -35,8 +35,8 @@
 		// 删除购物车
 		public function delete_cart(){
 			$uid=$this->input->get('uid');
-			$gid=$this->input->get('gid');
-			$this->cart_model->delete_cart($uid,$gid);
+			$sid=$this->input->get('sid');
+			$this->cart_model->delete_cart($sid);
 			$result=$this->cart_model->get_cart($uid);
 			echo json_encode($result);
 		}
