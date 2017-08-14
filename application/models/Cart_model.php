@@ -42,6 +42,11 @@
 			$this->db->where('good_id',$gid);
 			$this->db->delete('shopping_cart');
 		}
+		public function update_by_sid($sid,$count){
+			$this->db->where('shop_id',$sid);
+			$this->db->set('count',$count);
+			$query=$this->db->update('shopping_cart');
+		}
 	}	
 
 ?>

@@ -40,6 +40,15 @@
 			$result=$this->cart_model->get_cart($uid);
 			echo json_encode($result);
 		}
+		// 给购物车id 商品数量 修改购物车
+		public function update_cart(){
+			$sid=$this->input->get('sid');
+			$count=$this->input->get('count');
+			$query=$this->cart_model->update_by_sid($sid,$count);
+			if($query){
+				echo "1";
+			}
+		}
 	}
 
 
