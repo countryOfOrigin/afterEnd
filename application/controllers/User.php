@@ -61,6 +61,20 @@
 				echo "1";
 			}
 		}
+		// 插入新地址
+		public function insert_address(){
+			$uid=$this->input->post('uid');
+			$detail=$this->input->post('detail');  //详细地址
+			$pro=$this->input->post('pro'); //省
+			$city=$this->input->post('city'); //市
+			$dis=$this->input->post('dis'); //区
+			$name=$this->input->post('name');
+			$tel=$this->input->post('tel');
+			$query=$this->user_model->insert_address($uid,$detail,$pro,$city,$dis,$name,$tel);
+			if($query){
+				echo "1";
+			}
+		}
 	 }
 
 
