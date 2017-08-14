@@ -30,7 +30,11 @@
 			// echo "<pre>";
 			// var_dump($result);
 			// echo "</pre>";
-			echo json_encode($result);
+			if($result){
+				echo json_encode($result);
+			}else{
+				echo "0";
+			}	
 		}
 		// 删除购物车
 		public function delete_cart(){
@@ -38,7 +42,11 @@
 			$sid=$this->input->get('sid');
 			$this->cart_model->delete_cart($sid);
 			$result=$this->cart_model->get_cart($uid);
-			echo json_encode($result);
+			if($result){
+				echo json_encode($result);
+			}else{
+				echo "0";
+			}	
 		}
 		// 给购物车id 商品数量 修改购物车
 		public function update_cart(){
