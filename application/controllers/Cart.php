@@ -40,7 +40,9 @@
 		public function delete_cart(){
 			$uid=$this->input->get('uid');
 			$sid=$this->input->get('sid');
-			$this->cart_model->delete_cart($sid);
+			for(var i=0;i<count($sid);i++){
+				$this->cart_model->delete_cart($sid[i]);
+			}
 			$result=$this->cart_model->get_cart($uid);
 			if($result){
 				echo json_encode($result);
