@@ -40,8 +40,8 @@
 		public function delete_cart(){
 			$uid=$this->input->get('uid');
 			$sid=$this->input->get('sid');
-			for(var i=0;i<count($sid);i++){
-				$this->cart_model->delete_cart($sid[i]);
+			for($i=0;$i<count($sid);$i++){
+				$this->cart_model->delete_cart($sid[$i]);
 			}
 			$result=$this->cart_model->get_cart($uid);
 			if($result){
