@@ -60,6 +60,7 @@
 			$this->db->select('price');
 			$this->db->select('parameter');
 			$this->db->select('url');
+			$this->db->select('url_all');
 			$this->db->where('good_id',$gid);
 			$query=$this->db->get();
 			return $query->row();

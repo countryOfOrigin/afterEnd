@@ -48,6 +48,7 @@
 		public function info(){
 			$gid=$this->input->get('gid');
 			$result=$this->goods_model->info($gid);
+			$result->url_all=explode(";",$result->url_all);
 			echo json_encode($result);
 		}
 		// 给用户id返回收藏
