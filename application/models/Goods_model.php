@@ -77,7 +77,7 @@
 		public function hot_goods(){
 			$this->db->from('goods');
 			$this->db->limit(6);
-			$this->db->order_by('sales','DESC');
+			$this->db->order_by('sales_volume','DESC');
 			$query=$this->db->get();
 			return $query->result();
 		}
