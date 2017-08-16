@@ -9,9 +9,14 @@
 		public function add_coupon(){
 			$uid=$this->input->get('uid');
 			$cid=$this->input->get('cid');
-			$query=$this->coupon_model->add_coupon($uid,$cid);
-			if ($query) {
-				echo "1";
+			$check=$this->coupon_model->check($uid,$cid);
+			if($check){
+				echo "0";
+			}else{
+				$query=$this->coupon_model->add_coupon($uid,$cid);
+				if ($query) {
+					echo "1";
+				}
 			}
 		}
 		// 所有优惠券信息
