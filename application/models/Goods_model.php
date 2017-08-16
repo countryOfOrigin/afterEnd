@@ -82,6 +82,12 @@
 			$query=$this->db->get();
 			return $query->result();
 		}
+		public function goods_comment($gid){
+			$this->db->from('comment');
+			$this->db->where('good_id',$gid);
+			$query=$this->db->get();
+			return $query;
+		}
 	}
 
 ?>
