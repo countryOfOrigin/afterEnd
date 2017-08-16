@@ -9,7 +9,7 @@
 		public function get_goods(){
 			$arr=[];
 			for ($i=1; $i < 9; $i++) { 
-				$result=$this->goods_model->get_goods($i,4,null);
+				$result=$this->goods_model->get_goods($i,6,null);
 				array_push($arr,$result);
 			}
 			echo json_encode($arr);
