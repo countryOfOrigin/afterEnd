@@ -21,15 +21,16 @@
 		}
 		// 所有优惠券信息
 		public function get_coupon(){
-			$result=$this->coupon_model->get_coupon();
-			if($result){
-				foreach ($result as $key=>$val) {
-					if ($val->deadline<date("Y-m-d")){
-						unset($result[$key]);
-					}
-				}
+			$now=date("Y-m-d");
+			$result=$this->coupon_model->get_coupon($now);
+			// if($result){
+				// foreach ($result as $key=>$val) {
+				// 	if ($val->deadline<date("Y-m-d")){
+				// 		unset($result[$key]);
+				// 	}
+				// }
 				// echo json_encode($result);
-			}
+			// }
 			if($result){
 				echo json_encode($result);
 			}else{
@@ -39,15 +40,17 @@
 		// 给用户id 返回代金券信息
 		public function get_owncoupon(){
 			$uid=$this->input->get('uid');
-			$result=$this->coupon_model->get_owncoupon($uid);
-			if($result){
-				foreach ($result as $key=>$val) {
-					if ($val->deadline<date("Y-m-d")){
-						unset($result[$key]);
-					}
-				}
-				// echo json_encode($result);
-			}
+			$now=date("Y-m-d");
+			$result=$this->coupon_model->get_owncoupon($uid,$now);
+			// if($result){
+			// 	foreach ($result as $key=>$val) {
+			// 		if ($val->deadline<date("Y-m-d")){
+			// 			unset($result[$key]);
+			// 		}
+			// 	}
+			// 	foreach()
+			// 	// echo json_encode($result);
+			// }
 			if($result){
 				echo json_encode($result);
 			}else{

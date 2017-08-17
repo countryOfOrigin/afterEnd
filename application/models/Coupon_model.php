@@ -7,8 +7,9 @@
 			$query=$this->db->insert('user_coupon');
 			return $query;
 		}
-		public function get_coupon(){
+		public function get_coupon($now){
 			$this->db->from('coupon');
+			$this->db->where('deadline >',$now);
 			$query=$this->db->get();
 			return $query->result();
 		}
@@ -19,10 +20,11 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
-		public function get_owncoupon($uid){
+		public function get_owncoupon($uid,$now){
 			$this->db->from('user_coupon');
 			$this->db->join('coupon','user_coupon.coupon_id=coupon.coupon_id');
 			$this->db->where('user_coupon.user_id',$uid);
+			$this->db->where('coupon.deadline >',$now);
 			$query=$this->db->get();
 			return $query->result();
 		}
