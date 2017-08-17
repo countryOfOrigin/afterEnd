@@ -19,5 +19,12 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
+		public function get_owncoupon($uid){
+			$this->db->from('user_coupon');
+			$this->db->join('coupon','user_coupon.coupon_id=coupon.coupon_id');
+			$this->db->where('user_coupon.user_id',$uid);
+			$query=$this->db->get();
+			return $query->result();
+		}
 	}
 ?>

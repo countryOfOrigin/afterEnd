@@ -33,6 +33,7 @@
 		public function fuzzy_search($ipt){
 			$this->db->from('goods');
 			$this->db->like('name',$ipt);
+			$this->db->order_by('sales_volume','DESC');
 			$query=$this->db->get();
 			return $query->result();
 		}

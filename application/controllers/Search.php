@@ -19,7 +19,7 @@
 		// }
 		// 模糊搜索
 		public function fuzzy_search(){
-			$ipt=$this->input->post('$ipt');
+			$ipt=$this->input->post('ipt');
 			// $ipt=$this->input->get('ipt');
 			$check=$this->search_model->check_search($ipt);
 			if($check){
