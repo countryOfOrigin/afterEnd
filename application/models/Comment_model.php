@@ -13,5 +13,12 @@
 			$query=$this->db->get();
 			return $query->result();
 		}
+		public function check_collection($gid,$uid){
+			$this->db->from('collection');
+			$this->db->where('user_id',$uid);
+			$this->db->where('good_id',$gid);
+			$query=$this->db->get();
+			return $query->row();
+		}
 	}
 ?>

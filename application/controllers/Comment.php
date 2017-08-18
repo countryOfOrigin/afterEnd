@@ -15,6 +15,17 @@
 				echo "0";
 			}
 		}
+		// 给用户id和商品id 判断用户是否收藏
+		public function check_collection(){
+			$gid=$this->input->get('gid');
+			$uid=$this->input->get('uid');
+			$result=$this->comment_model->check_collection($gid,$uid);
+			if($result){
+				echo "1";
+			}else{
+				echo "0";
+			}
+		}
 	}
 
 
