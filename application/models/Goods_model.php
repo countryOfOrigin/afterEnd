@@ -71,8 +71,8 @@
 			$this->db->from('goods');
 			$this->db->join('collection','goods.good_id=collection.good_id');
 			$this->db->where('collection.user_id',$uid);
-			$this->db->select('goods.good_id');
 			$this->db->select('goods.name');
+			$this->db->select('goods.good_id');
 			$this->db->select('goods.price');
 			$this->db->select('goods.url');
 			$query=$this->db->get();

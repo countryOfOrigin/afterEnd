@@ -65,7 +65,11 @@
 		public function collection(){
 			$uid=$this->input->get('uid');
 			$result=$this->goods_model->collection($uid);
-			echo json_encode($result);
+			if($result){
+				echo json_encode($result);
+			}else{
+				echo "0";
+			}
 		}
 		// 最热商品信息
 		public function hot_goods(){
