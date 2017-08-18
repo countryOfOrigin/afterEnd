@@ -26,6 +26,29 @@
 				echo "0";
 			}
 		}
+		// 添加收藏
+		public function add_collection(){
+			$gid=$this->input->get('gid');
+			$uid=$this->input->get('uid');
+			$now=date("Y-m-d");
+			$query=$this->comment_model->add_collection($gid,$uid,$now);
+			if($query){
+				echo "1";
+			}else{
+				echo "0";
+			}
+		}
+		// 取消收藏
+		public function remove_collection(){
+			$gid=$this->input->get('gid');
+			$uid=$this->input->get('uid');
+			$query=$this->comment_model->remove_collection($gid,$uid);
+			if($query){
+				echo "1";
+			}else{
+				echo "0";
+			}
+		}
 	}
 
 

@@ -20,5 +20,18 @@
 			$query=$this->db->get();
 			return $query->row();
 		}
+		public function add_collection($gid,$uid,$now){
+			$this->db->set('user_id',$uid);
+			$this->db->set('good_id',$gid);
+			$this->db->set('time',$now);
+			$query=$this->db->insert('collection');
+			return $query;
+		}
+		public function remove_collection($gid,$uid){
+			$this->db->where('user_id',$uid);
+			$this->db->where('good_id',$gid);
+			$query=$this->db->delete('collection');
+			return $query;
+		}
 	}
 ?>
