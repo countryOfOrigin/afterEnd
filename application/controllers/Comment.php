@@ -5,7 +5,7 @@
 			parent::__construct();
 			$this->load->model('comment_model');
 		}
-		// 给用户id 返回评论信息
+		// 给商品id 返回评论信息
 		public function get_comment(){
 			$gid=$this->input->get('gid');
 			$result=$this->comment_model->get_comment($gid);

@@ -49,6 +49,16 @@
 			$gid=$this->input->get('gid');
 			$result=$this->goods_model->info($gid);
 			$result->url_all=explode(";",$result->url_all);
+			$result->url_top=explode(";",$result->url_top);
+			$comment=$this->goods_model->goods_comment($gid);
+			$collection=$this->goods_model->goods_collection($gid);
+			$collection=$collection?$collection:0;
+			$result->comment=$comment;
+			$result->collection=$collection;
+			// echo "<pre>";
+			// var_dump($result);
+			// echo "</pre>";
+			// die();
 			echo json_encode($result);
 		}
 		// 给用户id返回收藏
